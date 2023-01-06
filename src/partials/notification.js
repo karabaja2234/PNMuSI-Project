@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 
+//Notification component used for showing the error messages
 const Toast = Swal.mixin({
     toast: true,
     position: "top-end",

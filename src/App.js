@@ -1,7 +1,12 @@
 import RegulaFalsi from './components/RegulaFalsi'
 import Newton from './components/Newton'
-import './App.css';
 import { Tabs, Tab } from 'react-bootstrap';
+import './App.css';
+
+//Configuration for the mathjs library
+import { create, all } from 'mathjs'
+const config = { }
+const math = create(all, config)
 
 function App() {
   return (
@@ -10,12 +15,12 @@ function App() {
           <Tab eventKey="regulaFalsi" title="Regula Falsi">
               {/* REGULA FALSI */}
               <br></br>
-              <RegulaFalsi/>
+              <RegulaFalsi mathjs={math}/>
           </Tab>
           <Tab eventKey="newton" title="Newton">
               {/* NEWTON */}
               <br></br>
-              <Newton />
+              <Newton mathjs={math}/>
           </Tab>
       </Tabs>
     </div>
