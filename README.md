@@ -2,7 +2,7 @@
 
 ## Tema
 
-Aplikacija za numeričko rješavanje
+- Aplikacija za numeričko rješavanje
 nelinearnih jednačina
 
 ## Grupa
