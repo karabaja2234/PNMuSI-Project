@@ -2,7 +2,7 @@ import { create, all } from 'mathjs'
 const config = { }
 const math = create(all, config)
 
-export default class RegulaFalsiAlgorithm {
+export default class BisectionAlgorithm {
     constructor(functionDefinition, startInterval, endInterval, precision, maxIterations) {
         //Setters
         if(startInterval < endInterval) {
@@ -12,8 +12,6 @@ export default class RegulaFalsiAlgorithm {
             this.startInterval = Number(endInterval);
             this.endInterval = Number(startInterval);
         }
-        this.startInterval = startInterval;
-        this.endInterval = endInterval;
         this.precision = precision;
         this.maxIterations = maxIterations;
         this.results = []
@@ -25,33 +23,52 @@ export default class RegulaFalsiAlgorithm {
         }
     }
 
-    calculateRegulaFalsi() {
+    calculateBisection() {
         //Initial iteration
         let i = 0;
 
-        //Initial approximation
-        let previousApproximation = (this.endInterval * this.func(this.startInterval) - this.startInterval * this.func(this.endInterval)) / (this.func(this.startInterval) - this.func(this.endInterval));
+        //Initial limits
+        let a = this.startInterval
+        let b = this.endInterval
+
+        //Initial value
+        let cPrevious = (a + b) / 2
+
+        //Initial approximations
+        let fa = this.func(a);
+        let fb = this.func(b);
+        let fcPrevious = this.func(cPrevious)
       
         while (i < this.maxIterations) {
-            //Update the intervals based on the current results of the functions
-            if (this.func(this.startInterval) * this.func(previousApproximation) < 0) {
-                this.endInterval = previousApproximation;
-            } else {
-                this.startInterval = previousApproximation;
-            }
+            //Update the limits based on the current results of the functions
+            if(fcPrevious * fa < 0) {
+                b = cPrevious;
+            } 
+
+            if(fcPrevious * fb < 0) {
+                a = cPrevious;
+            } 
+
+            //Update variables
+            fa = this.func(a);
+            fb = this.func(b);
+
+            //Current value
+            let cCurrent = (a + b) / 2
 
             //Calculate the current approximation and mistake
-            let currentApproximation = (this.endInterval * this.func(this.startInterval) - this.startInterval * this.func(this.endInterval)) / (this.func(this.startInterval) - this.func(this.endInterval));
-            let currentMistake = Math.abs(currentApproximation - previousApproximation);
+            let fcCurrent = this.func(cCurrent)
+            let currentMistake = Math.abs(cCurrent - cPrevious);
             
             //Add the current approximation and mistake to the array of results
             this.results = [...this.results, {
-                approximation: previousApproximation,
+                approximation: cCurrent,
                 mistake: currentMistake 
             }]
         
             //Update variables
-            previousApproximation = currentApproximation;
+            cPrevious = cCurrent;
+            fcPrevious = fcCurrent
 
             //Break the loop if the desired precision has been reached
             if (currentMistake <= this.precision) {

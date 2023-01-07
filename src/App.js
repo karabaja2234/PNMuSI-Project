@@ -1,5 +1,6 @@
 import RegulaFalsi from './components/RegulaFalsi'
 import Newton from './components/Newton'
+import Bisection from './components/Bisection'
 import { Tabs, Tab } from 'react-bootstrap';
 import './App.css';
 
@@ -21,6 +22,11 @@ function App() {
               {/* NEWTON */}
               <br></br>
               <Newton mathjs={math}/>
+          </Tab>
+          <Tab eventKey="bisection" title="Bisekcija">
+              {/* BISECTION */}
+              <br></br>
+              <Bisection mathjs={math}/>
           </Tab>
       </Tabs>
     </div>
