@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import NewtonAlgorithm from "../classes/newton";
+import SecantAlgorithm from "../classes/secant";
 import { Button, Form, Table } from 'react-bootstrap';
 import Toast from '../partials/notification'
 import { Line } from 'react-chartjs-2';
@@ -7,26 +7,26 @@ import 'chart.js/auto';
 import { 
     validateString, 
     validatePositiveNumber, 
-    validateNumberExists, 
-    validateNewtonForm 
+    validateNumberExists,  
+    validateSecantForm 
 } from '../partials/validators'
 
-export default function Newton(props) {
-    //States used to handle the input and output of the Newton Algorithm
+export default function Secant(props) {
+    //States used to handle the input and output of the Secant Algorithm
     const [functionDefinition, setFunctionDefinition] = useState("")
     const [precision, setPrecision] = useState()
     const [maxIterations, setMaxIterations] = useState()
     const [results, setResults] = useState([])
 
-    //States used for handling the graph of the Newton Algorithm's results
+    //States used for handling the graph of the Secant Algorithm's results
     const ref = useRef();
     const [data, setData] = useState({})
 
-    //Method that uses the Newton Algorithm and handles it's result
-    const calculateNewton = () => {
+    //Method that uses the Secant Algorithm and handles it's result
+    const calculateSecant = () => {
         try {
-            const newtonAlgorithm = new NewtonAlgorithm(functionDefinition, precision, maxIterations);
-            const response = newtonAlgorithm.calculateNewton();
+            const secantAlgorithm = new SecantAlgorithm(functionDefinition, precision, maxIterations);
+            const response = secantAlgorithm.calculateSecant();
             
             if(response) {
                 setResults(response)
@@ -81,7 +81,7 @@ export default function Newton(props) {
     return (
       <div>
         <h1>PNMuSI - Projekat</h1>
-        <h2>Newton Algoritam</h2>
+        <h2>Sekanta</h2>
         <p>Automatski primijeni jednu od ponuđenih funkcija?</p>
         <div className='d-flex align-items-center justify-content-center'>
             <Button className='m-2' variant="success" onClick={() => applyExistingData("x^2 - 2", 10e-4, 100)}>
@@ -139,11 +139,11 @@ export default function Newton(props) {
                     ) : null}
                 </div>
             </div>
-            {!validateNewtonForm(functionDefinition, precision, maxIterations)  ? (
+            {!validateSecantForm(functionDefinition, precision, maxIterations)  ? (
                 <p className="mt-4" style={{color: 'red'}}>
                     Informacije moraju biti ispravno unesene da bi algoritam bio pokrenut.
                 </p>
-            ) : <Button variant="primary" onClick={calculateNewton}>
+            ) : <Button variant="primary" onClick={calculateSecant}>
                     Izračunaj
                 </Button>
             }

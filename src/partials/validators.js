@@ -10,7 +10,7 @@ export const validatePositiveNumber = (nr) => {
 
 //Method which validates that a number exists
 export const validateNumberExists = (nr) => {
-    return nr || nr == 0 ? true : false
+    return nr || nr === 0 ? true : false
 };
 
 //Method which validates that two numbers aren't identical when both of them exist
@@ -47,6 +47,16 @@ export const validateBisectionForm = (functionDefinition, startInterval, endInte
     if(!validateNumberExists(startInterval)) return false
     if(!validateNumberExists(endInterval)) return false
     if(!validateIdenticalNumbers(startInterval, endInterval)) return false
+    if(!validateNumberExists(precision)) return false
+    if(!validatePositiveNumber(precision)) return false
+    if(!validateNumberExists(maxIterations)) return false
+    if(!validatePositiveNumber(maxIterations)) return false
+    return true
+}
+
+//Method which validates all input fields of the Secant component at the same time
+export const validateSecantForm = (functionDefinition, precision, maxIterations) => {
+    if(!validateString(functionDefinition)) return false
     if(!validateNumberExists(precision)) return false
     if(!validatePositiveNumber(precision)) return false
     if(!validateNumberExists(maxIterations)) return false

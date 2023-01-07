@@ -1,6 +1,7 @@
 import RegulaFalsi from './components/RegulaFalsi'
 import Newton from './components/Newton'
 import Bisection from './components/Bisection'
+import Secant from './components/Secant'
 import { Tabs, Tab } from 'react-bootstrap';
 import './App.css';
 
@@ -27,6 +28,11 @@ function App() {
               {/* BISECTION */}
               <br></br>
               <Bisection mathjs={math}/>
+          </Tab>
+          <Tab eventKey="secant" title="Sekanta">
+              {/* SECANT */}
+              <br></br>
+              <Secant mathjs={math}/>
           </Tab>
       </Tabs>
     </div>
