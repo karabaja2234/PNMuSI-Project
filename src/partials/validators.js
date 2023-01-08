@@ -63,3 +63,13 @@ export const validateSecantForm = (functionDefinition, precision, maxIterations)
     if(!validatePositiveNumber(maxIterations)) return false
     return true
 }
+
+//Method which validates all input fields of the FixedPointIteration component at the same time
+export const validateFixedPointIterationForm = (functionDefinition, precision, maxIterations) => {
+    if(!validateString(functionDefinition)) return false
+    if(!validateNumberExists(precision)) return false
+    if(!validatePositiveNumber(precision)) return false
+    if(!validateNumberExists(maxIterations)) return false
+    if(!validatePositiveNumber(maxIterations)) return false
+    return true
+}

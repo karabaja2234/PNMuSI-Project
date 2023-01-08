@@ -2,6 +2,7 @@ import RegulaFalsi from './components/RegulaFalsi'
 import Newton from './components/Newton'
 import Bisection from './components/Bisection'
 import Secant from './components/Secant'
+import FixedPointIteration from './components/FixedPointIteration'
 import { Tabs, Tab } from 'react-bootstrap';
 import './App.css';
 
@@ -13,7 +14,7 @@ const math = create(all, config)
 function App() {
   return (
     <div className="App container">
-      <Tabs defaultActiveKey="regulaFalsi" id="uncontrolled-tab-example" className="mb-2 mt-3">
+      <Tabs defaultActiveKey="fixedPointIteration" id="uncontrolled-tab-example" className="mb-2 mt-3">
           <Tab eventKey="regulaFalsi" title="Regula Falsi">
               {/* REGULA FALSI */}
               <br></br>
@@ -33,6 +34,11 @@ function App() {
               {/* SECANT */}
               <br></br>
               <Secant mathjs={math}/>
+          </Tab>
+          <Tab eventKey="fixedPointIteration" title="Prosta iteracija">
+              {/* FIXED POINT ITERATION */}
+              <br></br>
+              <FixedPointIteration mathjs={math}/>
           </Tab>
       </Tabs>
     </div>
