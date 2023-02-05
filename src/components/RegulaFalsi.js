@@ -11,6 +11,8 @@ import {
     validateIdenticalNumbers, 
     validateRegulaFalsiForm 
 } from '../partials/validators' 
+import CsvDownloadButton from 'react-json-to-csv'
+import { exportToPdf } from '../partials/exportToPdf'
 
 export default function RegulaFalsi(props) {
     //States used to handle the input and output of the RegulaFalsi Algorithm
@@ -174,13 +176,30 @@ export default function RegulaFalsi(props) {
                     ) : null}
                 </div>
             </div>
+            <hr></hr>
             {!validateRegulaFalsiForm(functionDefinition, startInterval, endInterval, precision, maxIterations)  ? (
                 <p className="mt-4" style={{color: 'red'}}>
                     Informacije moraju biti ispravno unesene da bi algoritam bio pokrenut.
                 </p>
-            ) : <Button variant="primary" onClick={calculateRegulaFalsi}>
+            ) : <Button variant="success" onClick={calculateRegulaFalsi}>
                     Izračunaj
                 </Button>
+            }
+            {results.length > 0 && 
+                <div className='d-flex'>
+                    <CsvDownloadButton 
+                        className='btn btn-primary m-3' 
+                        data={results} 
+                        filename={"RegulaFalsi - " + new Date().getTime() + ".csv"}
+                    >
+                        Preuzmi kao CSV
+                    </CsvDownloadButton>
+                    <Button className='btn btn-primary m-3' onClick={
+                        () => exportToPdf(results, "Regula Falsi", functionDefinition, maxIterations, precision, startInterval, endInterval)
+                    }>
+                        Preuzmi kao PDF
+                    </Button>
+                </div>
             }
         </Form>
         {results.length > 0 ?

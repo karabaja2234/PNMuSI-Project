@@ -14,7 +14,7 @@ const math = create(all, config)
 function App() {
   return (
     <div className="App container">
-      <Tabs defaultActiveKey="fixedPointIteration" id="uncontrolled-tab-example" className="mb-2 mt-3">
+      <Tabs defaultActiveKey="regulaFalsi" id="uncontrolled-tab-example" className="mb-2">
           <Tab eventKey="regulaFalsi" title="Regula Falsi">
               {/* REGULA FALSI */}
               <br></br>

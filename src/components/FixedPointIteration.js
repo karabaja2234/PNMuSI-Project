@@ -10,6 +10,8 @@ import {
     validateNumberExists, 
     validateFixedPointIterationForm 
 } from '../partials/validators'
+import CsvDownloadButton from 'react-json-to-csv'
+import { exportToPdf } from '../partials/exportToPdf'
 
 export default function FixedPointIteration(props) {
     //States used to handle the input and output of the FixedPointIteration Algorithm
@@ -160,6 +162,22 @@ export default function FixedPointIteration(props) {
             ) : <Button variant="primary" onClick={calculateFixedPointIteration}>
                     Izračunaj
                 </Button>
+            }
+            {results.length > 0 && 
+                <div className='d-flex'>
+                    <CsvDownloadButton 
+                        className='btn btn-primary m-3' 
+                        data={results} 
+                        filename={"ProstaIteracija - " + new Date().getTime() + ".csv"}
+                    >
+                        Preuzmi kao CSV
+                    </CsvDownloadButton>
+                    <Button className='btn btn-primary m-3' onClick={
+                        () => exportToPdf(results, "ProstaIteracija", functionDefinition, maxIterations, precision, null, null)
+                    }>
+                        Preuzmi kao PDF
+                    </Button>
+                </div>
             }
         </Form>
         {results.length > 0 ?

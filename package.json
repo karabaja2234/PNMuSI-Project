@@ -39,9 +39,12 @@
     "bootstrap": "^5.2.2",
     "chart.js": "^4.1.1",
     "function-plot": "^1.23.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
     "mathjs": "^11.5.0",
     "react-bootstrap": "^2.6.0",
     "react-chartjs-2": "^5.1.0",
+    "react-json-to-csv": "^1.2.0",
     "sweetalert2": "^11.6.8"
   }
 }
