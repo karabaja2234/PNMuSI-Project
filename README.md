@@ -19,6 +19,7 @@ nelinearnih jednačina
 - Upravljanje greškama
 - Upotreba raznih algoritama (RegulaFalsi, Newton, ...)
 - Pristup aplikaciji sa bilo kojeg uređaja putem web browsera
+- Mogućnost exportovanja podataka u CSV i PDF formatu
 
 ## Pokretanje Projekta
 
