@@ -41,6 +41,12 @@ function App() {
               <FixedPointIteration mathjs={math}/>
           </Tab>
       </Tabs>
+      <hr></hr>
+      <div>
+        <b><p>Developed by</p></b>
+        <p>Lejla V. | Selman P. | Jana J.</p>
+        <p>Polytechnic Faculty, University of Zenica</p>
+      </div>
     </div>
   );
 }
