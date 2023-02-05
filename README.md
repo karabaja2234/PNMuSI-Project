@@ -17,7 +17,7 @@ nelinearnih jednačina
 - Parsiranje matematičkih funkcija i izvoda
 - Korisnički interfejs zaštićen raznim validacijama
 - Upravljanje greškama
-- Upotreba raznih algoritama (RegulaFalsi, Newton, ...)
+- Upotreba 5 različitih metoda (Regula Falsi, Newton, Sekanta, Bisekcija i Prosta iteracija)
 - Pristup aplikaciji sa bilo kojeg uređaja putem web browsera
 - Mogućnost exportovanja podataka u CSV i PDF formatu
 
