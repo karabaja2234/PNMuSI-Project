@@ -176,7 +176,6 @@ export default function RegulaFalsi(props) {
                     ) : null}
                 </div>
             </div>
-            <hr></hr>
             {!validateRegulaFalsiForm(functionDefinition, startInterval, endInterval, precision, maxIterations)  ? (
                 <p className="mt-4" style={{color: 'red'}}>
                     Informacije moraju biti ispravno unesene da bi algoritam bio pokrenut.

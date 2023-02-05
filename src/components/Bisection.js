@@ -180,7 +180,7 @@ export default function Bisection(props) {
                 <p className="mt-4" style={{color: 'red'}}>
                     Informacije moraju biti ispravno unesene da bi algoritam bio pokrenut.
                 </p>
-            ) : <Button variant="primary" onClick={calculateBisection}>
+            ) : <Button variant="success" onClick={calculateBisection}>
                     Izračunaj
                 </Button>
             }

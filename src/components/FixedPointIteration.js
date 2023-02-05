@@ -159,7 +159,7 @@ export default function FixedPointIteration(props) {
                 <p className="mt-4" style={{color: 'red'}}>
                     Informacije moraju biti ispravno unesene da bi algoritam bio pokrenut.
                 </p>
-            ) : <Button variant="primary" onClick={calculateFixedPointIteration}>
+            ) : <Button variant="success" onClick={calculateFixedPointIteration}>
                     Izračunaj
                 </Button>
             }

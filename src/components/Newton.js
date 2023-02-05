@@ -145,7 +145,7 @@ export default function Newton(props) {
                 <p className="mt-4" style={{color: 'red'}}>
                     Informacije moraju biti ispravno unesene da bi algoritam bio pokrenut.
                 </p>
-            ) : <Button variant="primary" onClick={calculateNewton}>
+            ) : <Button variant="success" onClick={calculateNewton}>
                     Izračunaj
                 </Button>
             }
